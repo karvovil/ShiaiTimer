@@ -29,14 +29,37 @@ namespace ShiaiTimer
 
         private void whitePointButton_Click(object sender, EventArgs e)
         {
-            score.AddWhiteIppon();
-            whitePointLabel.Text = score.WhiteScore();
+            
+            PointPopup popup = new PointPopup();
+
+
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                if (popup.pointType == "Ippon") { score.AddWhiteIppon(); }
+                else if (popup.pointType == "Waza-Ari") { score.AddWhiteWazaAri(); }
+                else if (popup.pointType == "Yuko") { score.AddWhiteYuko(); }
+            }
+            else if (popup.ShowDialog() == DialogResult.Cancel) { }
+
+                whitePointLabel.Text = score.WhiteScore();
+                popup.Dispose();
         }
 
         private void bluePointButton_Click(object sender, EventArgs e)
         {
-            score.AddBlueIppon();
+            PointPopup popup = new PointPopup();
+
+
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                if (popup.pointType == "Ippon") { score.AddBlueIppon(); }
+                else if (popup.pointType == "Waza-Ari") { score.AddBlueWazaAri(); }
+                else if (popup.pointType == "Yuko") { score.AddBlueYuko(); }
+            }
+            else if (popup.ShowDialog() == DialogResult.Cancel) { }
+
             bluePointLabel.Text = score.BlueScore();
+            popup.Dispose();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

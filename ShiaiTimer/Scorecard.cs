@@ -43,11 +43,11 @@ namespace ShiaiTimer
         }
         public void AddWhiteYuko()
         {
-            whiteIppon++;
+            whiteYuko++;
         }
         public void AddBlueYuko()
         {
-            blueIppon++;
+            blueYuko++;
         }
 
         public string WhiteScore()
