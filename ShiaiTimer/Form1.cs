@@ -1,33 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
-using System.Collections;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace ShiaiTimer
 {
     public partial class Form1 : Form
     {
 
-        int matchTime = 5 * 60; //5min matchtime
-        int osaekomiTime = 0;
-        Scorecard score = new Scorecard();
+        int matchTime; 
+        int osaekomiTime;  
+        Scorecard score;
 
         public Form1()
         {
             InitializeComponent();
+            matchTime = 5 * 60; //5min matchtime
+            osaekomiTime = 0; 
+            score = new Scorecard();
         }
 
 
-
+        //opens popup, adds selected point to scorecard, updates point label and disposes the popup.
         private void whitePointButton_Click(object sender, EventArgs e)
         {
             
@@ -78,23 +70,32 @@ namespace ShiaiTimer
                 startTimeButton.Text = "Stop";
             }
         }
-
+        //updates osaekomi timer. If Osaekomi lasts 20 secs, adds ippon to scorecard
         private void whiteOsaekomiTimer_Tick(object sender, EventArgs e)
         {
             osaekomiTime++;
             whiteOsaekomiLabel.Text = osaekomiTime.ToString();
-            if (osaekomiTime == 20) { score.AddWhiteIppon(); }
-            whitePointLabel.Text = score.WhiteScore();
+            if (osaekomiTime == 20)
+            {
+                score.AddWhiteIppon();
+                whitePointLabel.Text = score.WhiteScore();
+            }
+
+            
         }
 
         private void blueOsaekomiTimer_Tick(object sender, EventArgs e)
         {
             osaekomiTime++;
             blueOsaekomiLabel.Text = osaekomiTime.ToString();
-            if (osaekomiTime == 20) { score.AddBlueIppon(); }
-            bluePointLabel.Text = score.BlueScore();
+            if (osaekomiTime == 20)
+            {
+                score.AddBlueIppon();
+                bluePointLabel.Text = score.BlueScore();
+            }
+            
         }
-
+        //Stops/starts osaekomi timer and updates points according to elapsed osaekomi time
         private void whiteOsaekomiButton_Click(object sender, EventArgs e)
         {
             if (whiteOsaekomiTimer.Enabled)

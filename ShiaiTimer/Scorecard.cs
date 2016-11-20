@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShiaiTimer
 {
+    //class for holding the point situation and faults of single match.
     public class Scorecard
     {
         private int whiteIppon;
@@ -41,6 +38,7 @@ namespace ShiaiTimer
         {
             blueIppon++;
         }
+        //two waza-aris convert to an ippon
         public void AddWhiteWazaAri()
         {
             whiteWazaAri++;
@@ -83,7 +81,7 @@ namespace ShiaiTimer
         {
             blueHansokumake++;
         }
-
+        //returns simple textual represantion of point situation of white player
         public string WhiteScore()
         {
             String whitescore = "";
