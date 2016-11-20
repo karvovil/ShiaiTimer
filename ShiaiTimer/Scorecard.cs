@@ -56,5 +56,11 @@ namespace ShiaiTimer
             whitescore = whiteIppon.ToString() + " " + whiteWazaAri.ToString() + " " + whiteYuko.ToString() ;
             return whitescore;
         }
+        public string BlueScore()
+        {
+            String bluescore = "";
+            bluescore = blueIppon.ToString() + " " + blueWazaAri.ToString() + " " + blueYuko.ToString();
+            return bluescore;
+        }
     }
 }

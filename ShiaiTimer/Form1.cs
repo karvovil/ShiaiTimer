@@ -36,7 +36,7 @@ namespace ShiaiTimer
         private void bluePointButton_Click(object sender, EventArgs e)
         {
             score.AddBlueIppon();
-            bluePointLabel.Text = score.blueIppon.ToString();
+            bluePointLabel.Text = score.BlueScore();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
