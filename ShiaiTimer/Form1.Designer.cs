@@ -43,10 +43,10 @@
             this.pointPanel = new System.Windows.Forms.TableLayoutPanel();
             this.whitePointLabel = new System.Windows.Forms.Label();
             this.bluePointLabel = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.matchTimeLabel = new System.Windows.Forms.Label();
             this.startTimeButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -218,18 +218,13 @@
             // 
             // bluePointLabel
             // 
+            this.bluePointLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bluePointLabel.AutoSize = true;
-            this.bluePointLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bluePointLabel.Location = new System.Drawing.Point(124, 0);
+            this.bluePointLabel.Location = new System.Drawing.Point(226, 0);
             this.bluePointLabel.Name = "bluePointLabel";
-            this.bluePointLabel.Size = new System.Drawing.Size(115, 125);
+            this.bluePointLabel.Size = new System.Drawing.Size(13, 13);
             this.bluePointLabel.TabIndex = 1;
             this.bluePointLabel.Text = "0";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tableLayoutPanel2
             // 
@@ -255,6 +250,7 @@
             this.matchTimeLabel.Size = new System.Drawing.Size(236, 93);
             this.matchTimeLabel.TabIndex = 0;
             this.matchTimeLabel.Text = "label1";
+            this.matchTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // startTimeButton
             // 
@@ -266,6 +262,11 @@
             this.startTimeButton.Text = "button1";
             this.startTimeButton.UseVisualStyleBackColor = true;
             this.startTimeButton.Click += new System.EventHandler(this.startTimeButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
