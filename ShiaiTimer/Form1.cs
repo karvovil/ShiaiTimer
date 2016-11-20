@@ -16,9 +16,9 @@ namespace ShiaiTimer
 {
     public partial class Form1 : Form
     {
-        int whitepoints = 0;
-        int bluepoints = 0;
-        int matchTimer = 5 * 60; //5min
+
+        int matchTimer = 5 * 60; //5min matchtime
+        Scorecard score = new Scorecard();
 
         public Form1()
         {
@@ -29,14 +29,14 @@ namespace ShiaiTimer
 
         private void whitePointButton_Click(object sender, EventArgs e)
         {
-            whitepoints++;
-            whitePointLabel.Text = whitepoints.ToString();
+            score.AddWhiteIppon();
+            whitePointLabel.Text = score.WhiteScore();
         }
 
         private void bluePointButton_Click(object sender, EventArgs e)
         {
-            bluepoints++;
-            bluePointLabel.Text = bluepoints.ToString();
+            score.AddBlueIppon();
+            bluePointLabel.Text = score.blueIppon.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
