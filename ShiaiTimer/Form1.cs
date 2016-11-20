@@ -70,10 +70,12 @@ namespace ShiaiTimer
             if(matchTimer.Enabled)
             {
                 matchTimer.Stop();
+                startTimeButton.Text = "Start";
             }
             else
             {
                 matchTimer.Start();
+                startTimeButton.Text = "Stop";
             }
         }
 
@@ -106,6 +108,7 @@ namespace ShiaiTimer
             else
             {
                 osaekomiTime = 0;
+                whiteOsaekomiLabel.Text = osaekomiTime.ToString();
                 blueOsaekomiTimer.Stop();
                 whiteOsaekomiTimer.Start();
             }
@@ -124,6 +127,7 @@ namespace ShiaiTimer
             else
             {
                 osaekomiTime = 0;
+                blueOsaekomiLabel.Text = osaekomiTime.ToString();
                 whiteOsaekomiTimer.Stop();
                 blueOsaekomiTimer.Start();     
             }

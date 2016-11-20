@@ -52,13 +52,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(136, 261);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(120, 156);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(3, 198);
+            this.cancelButton.Location = new System.Drawing.Point(3, 120);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -68,7 +68,7 @@
             // yukoButton
             // 
             this.yukoButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.yukoButton.Location = new System.Drawing.Point(3, 133);
+            this.yukoButton.Location = new System.Drawing.Point(3, 81);
             this.yukoButton.Name = "yukoButton";
             this.yukoButton.Size = new System.Drawing.Size(75, 23);
             this.yukoButton.TabIndex = 2;
@@ -79,7 +79,7 @@
             // wazaAriButton
             // 
             this.wazaAriButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.wazaAriButton.Location = new System.Drawing.Point(3, 68);
+            this.wazaAriButton.Location = new System.Drawing.Point(3, 42);
             this.wazaAriButton.Name = "wazaAriButton";
             this.wazaAriButton.Size = new System.Drawing.Size(75, 23);
             this.wazaAriButton.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(136, 261);
+            this.ClientSize = new System.Drawing.Size(120, 156);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PointPopup";
             this.Text = "PointPopup";
