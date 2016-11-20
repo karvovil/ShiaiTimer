@@ -17,7 +17,8 @@ namespace ShiaiTimer
     public partial class Form1 : Form
     {
 
-        int matchTimer = 5 * 60; //5min matchtime
+        int matchTime = 5 * 60; //5min matchtime
+        int osaekomiTime = 0;
         Scorecard score = new Scorecard();
 
         public Form1()
@@ -32,23 +33,20 @@ namespace ShiaiTimer
             
             PointPopup popup = new PointPopup();
 
-
             if (popup.ShowDialog() == DialogResult.OK)
             {
                 if (popup.pointType == "Ippon") { score.AddWhiteIppon(); }
                 else if (popup.pointType == "Waza-Ari") { score.AddWhiteWazaAri(); }
                 else if (popup.pointType == "Yuko") { score.AddWhiteYuko(); }
             }
-            else if (popup.ShowDialog() == DialogResult.Cancel) { }
 
-                whitePointLabel.Text = score.WhiteScore();
-                popup.Dispose();
+            whitePointLabel.Text = score.WhiteScore();
+            popup.Dispose();
         }
 
         private void bluePointButton_Click(object sender, EventArgs e)
         {
             PointPopup popup = new PointPopup();
-
 
             if (popup.ShowDialog() == DialogResult.OK)
             {
@@ -56,28 +54,81 @@ namespace ShiaiTimer
                 else if (popup.pointType == "Waza-Ari") { score.AddBlueWazaAri(); }
                 else if (popup.pointType == "Yuko") { score.AddBlueYuko(); }
             }
-            else if (popup.ShowDialog() == DialogResult.Cancel) { }
 
             bluePointLabel.Text = score.BlueScore();
             popup.Dispose();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void matchTimer_Tick(object sender, EventArgs e)
         {
-            matchTimer--;
-            matchTimeLabel.Text = (matchTimer/60).ToString() + " : " + (matchTimer % 60).ToString();
+            matchTime--;
+            matchTimeLabel.Text = (matchTime/60).ToString() + " : " + (matchTime % 60).ToString();
         }
 
         private void startTimeButton_Click(object sender, EventArgs e)
         {
-            if(timer1.Enabled)
+            if(matchTimer.Enabled)
             {
-                timer1.Stop();
+                matchTimer.Stop();
             }
             else
             {
-                timer1.Start();
+                matchTimer.Start();
             }
         }
+
+        private void whiteOsaekomiTimer_Tick(object sender, EventArgs e)
+        {
+            osaekomiTime++;
+            whiteOsaekomiLabel.Text = osaekomiTime.ToString();
+            if (osaekomiTime == 20) { score.AddWhiteIppon(); }
+            whitePointLabel.Text = score.WhiteScore();
+        }
+
+        private void blueOsaekomiTimer_Tick(object sender, EventArgs e)
+        {
+            osaekomiTime++;
+            blueOsaekomiLabel.Text = osaekomiTime.ToString();
+            if (osaekomiTime == 20) { score.AddBlueIppon(); }
+            bluePointLabel.Text = score.BlueScore();
+        }
+
+        private void whiteOsaekomiButton_Click(object sender, EventArgs e)
+        {
+            if (whiteOsaekomiTimer.Enabled)
+            {
+                whiteOsaekomiTimer.Stop();
+                if (osaekomiTime >= 15) { score.AddWhiteWazaAri(); }
+                else if(osaekomiTime >= 10) { score.AddWhiteYuko(); }
+                osaekomiTime = 0;
+                whitePointLabel.Text = score.WhiteScore();
+            }
+            else
+            {
+                osaekomiTime = 0;
+                blueOsaekomiTimer.Stop();
+                whiteOsaekomiTimer.Start();
+            }
+        }
+
+        private void blueOsaekomiButton_Click(object sender, EventArgs e)
+        {
+            if (blueOsaekomiTimer.Enabled)
+            {
+                blueOsaekomiTimer.Stop();
+                if (osaekomiTime >= 15) { score.AddBlueWazaAri(); }
+                else if (osaekomiTime >= 10) { score.AddBlueYuko(); }
+                osaekomiTime = 0;
+                bluePointLabel.Text = score.BlueScore();
+            }
+            else
+            {
+                osaekomiTime = 0;
+                whiteOsaekomiTimer.Stop();
+                blueOsaekomiTimer.Start();     
+            }
+        }
+
+
     }
 }

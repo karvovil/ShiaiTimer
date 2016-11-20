@@ -14,6 +14,10 @@ namespace ShiaiTimer
         public int blueWazaAri;
         public int whiteYuko;
         public int blueYuko;
+        public int whiteShido;
+        public int blueShido;
+        public int whiteHansokumake;
+        public int blueHansokumake;
 
         public Scorecard()
         {
@@ -23,7 +27,11 @@ namespace ShiaiTimer
             blueWazaAri = 0;
             whiteYuko = 0;
             blueYuko = 0;
-        }
+            whiteShido = 0;
+            blueShido = 0;
+            whiteHansokumake = 0;
+            blueHansokumake = 0;
+    }
 
         public void AddWhiteIppon()
         {
@@ -48,6 +56,22 @@ namespace ShiaiTimer
         public void AddBlueYuko()
         {
             blueYuko++;
+        }
+        public void AddWhiteShido()
+        {
+            whiteShido++;
+        }
+        public void AddBlueShido()
+        {
+            blueShido++;
+        }
+        public void AddWhiteHansokumake()
+        {
+            whiteHansokumake++;
+        }
+        public void AddBlueHansokumake()
+        {
+            blueHansokumake++;
         }
 
         public string WhiteScore()
