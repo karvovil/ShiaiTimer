@@ -243,8 +243,9 @@
             // 
             // matchTimeLabel
             // 
-            this.matchTimeLabel.AutoSize = true;
+            this.matchTimeLabel.Cursor = System.Windows.Forms.Cursors.No;
             this.matchTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.matchTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
             this.matchTimeLabel.Location = new System.Drawing.Point(3, 0);
             this.matchTimeLabel.Name = "matchTimeLabel";
             this.matchTimeLabel.Size = new System.Drawing.Size(236, 93);
@@ -284,7 +285,6 @@
             this.pointPanel.ResumeLayout(false);
             this.pointPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

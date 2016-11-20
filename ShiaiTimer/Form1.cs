@@ -42,12 +42,19 @@ namespace ShiaiTimer
         private void timer1_Tick(object sender, EventArgs e)
         {
             matchTimer--;
-            matchTimeLabel.Text = matchTimer.ToString();
+            matchTimeLabel.Text = (matchTimer/60).ToString() + " : " + (matchTimer % 60).ToString();
         }
 
         private void startTimeButton_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            if(timer1.Enabled)
+            {
+                timer1.Stop();
+            }
+            else
+            {
+                timer1.Start();
+            }
         }
     }
 }
